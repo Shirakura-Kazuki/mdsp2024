@@ -67,4 +67,8 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Allow console access from 192.168.100.21
+  config.web_console.whitelisted_ips = '192.168.100.21'
+
 end
