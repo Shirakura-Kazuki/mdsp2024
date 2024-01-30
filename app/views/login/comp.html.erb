@@ -1,0 +1,108 @@
+
+<body>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    color: #4CAF50;
+    text-align: center;
+}
+
+/* その他の必要なスタイルをここに追加 */
+.authenticating {
+    color: red; /* テキストの色を赤に */
+    font-weight: bold; /* テキストを太字に */
+}
+
+/* スタイルの追加 */
+html, body {
+    height: 100%; /* ビューポートの高さに合わせる */
+    margin: 0; /* デフォルトの余白を除去 */
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    background-color: #f0f0f0; /* 背景色 */
+}
+
+.container {
+    text-align: center; /* コンテナ内のテキストを中央寄せ */
+    width: 800px; /* 幅を800ピクセルに設定 */
+    height: 650px; /* 高さを600ピクセルに設定 */
+    overflow: auto; /* 内容がオーバーフローした場合にスクロールバーを表示 */
+    margin: auto; /* 水平方向中央寄せ */
+    padding: 20px; /* 内側の余白 */
+}
+
+.authenticating {
+    color: red; /* テキストの色を赤に */
+    font-weight: bold; /* テキストを太字に */
+}
+
+.container img {
+    display: block; /* 画像をブロック要素に */
+    margin: 20px auto; /* 上下の余白と水平方向の中央揃え */
+    max-width: 100%; /* 画像の最大幅をコンテナ幅に制限 */
+    width: 450px; /* 幅を400ピクセルに設定 */
+    height: 300px; /* 高さを300ピクセルに設定 */
+}
+
+.step-boxes {
+    display: flex; /* 横並びのレイアウト */
+    justify-content: center; /* 中央寄せ */
+    margin-bottom: 20px; /* 下部の余白 */
+}
+
+.step-box {
+    padding: 10px 20px; /* 内側の余白 */
+    color: white; /* 文字色 */
+    font-weight: bold; /* 太字 */
+    margin: 0 10px; /* 左右の余白 */
+}
+
+.step-boxd {
+    padding: 10px 20px; /* 内側の余白 */
+    color: gainsboro; /* 文字色 */
+    /* font-weight: bold; 太字 */
+    margin: 0 10px; /* 左右の余白 */
+}
+
+.step1 {
+    background-color: grey; /* 背景色 */
+}
+
+.step2 {
+    background-color: red; /* 背景色 */
+}
+
+  </style>
+<div class="container">
+  <div class="step-boxes">
+      <div class="step-boxd step1">ステップ１: 指紋認証中</div>
+      <div class="step-box step2">ステップ２: 認証完了</div>
+</div>
+    <h1 class="title">本人認証完了<br>    医療従事者ページへ移動します。   </h1>
+    <h2 class="authenticating">正常に承認されました</h2>
+    <%= image_tag("15411.jpg", alt: "説明的なテキスト", size: "300x200") %>
+    <button type="button" onclick="history.back()">ホーム画面へ</button>
+</div>
+
+<script type="text/javascript">
+  // 3秒後に実行される関数を設定
+  setTimeout(function() {
+    // '/medicalhome'へのリダイレクト
+    window.location.href = '/medicalhome';
+  }, 5000); // 3000ミリ秒 = 3秒
+</script>

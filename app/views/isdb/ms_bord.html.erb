@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="jp">
+    <head>
+        <meta charset="UTF-8">
+        <title>医療診察！メディサポ 掲示板</title>
+    </head>
+
+    <body>
+        <!-- 以下、CSSコード -->
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            *:focus {
+                outline: none;
+            }
+
+            body {
+                font-family: Arial;
+                padding: 20px;
+            }
+            
+            .home {
+                margin: 20px auto;
+                width: 1200px;
+            }
+            
+            .home-title {
+                text-align: center;
+                font-size: 25px;
+                color: #777;
+            }
+
+            .contentB{
+                width: 100%;
+                height: 100px;
+            }
+
+            .talk {
+                margin: 20px auto;
+                width: 1200px;
+            }
+
+            .talk-title {
+                font-size: 20px;
+            }
+        </style>
+
+        <!-- 以下、HTMLコード -->
+        <div class="home">
+            <div class="home-screen">
+                <div class="home-title">
+                    <h1>掲示板</h1>
+                    <P>やり取りの確認ができます</P>
+                </div>
+                <div class="contentB">
+                    <label for="message" class="form-title">相談内容</label>
+                    <textarea type="text" id="message" name="message" class="message"></textarea>
+                </div>
+                <div class="buttonA">
+                    <!-- 以下はデータ送信用のコード(試験時はコメントアウト) -->
+                    <!-- <input type="submit" value="送信"> -->
+                    <button type="button" onclick="location.href='/mspost'">送信</button>
+                </div>
+                <!-- 開いている側のホーム画面へ戻る（ユーザならユーザホーム、ドクターならドクターホーム） -->
+                <button type="button" onclick="history.back()">ホーム画面へ</button>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="talk-screen">
+                <div class="talk-title">
+                    <h2>投稿欄</h2>
+                        <table  border="3" width="50%">
+                            <tr>
+                                <th>名前</th>
+                                <th>会話</th>
+                            </tr>
+                            <!-- 以下、直打ち -->
+                            <tr>
+                                <th>白倉</th>
+                                <th>ありがとうございます。</th>
+                            </tr>
+                            <tr>
+                                <th>村松武尾</th>
+                                <th>止血と消毒をして安静にしてください。</th>
+                            </tr>
+                            <tr>
+                                <th>村松武尾</th>
+                                <th>ご連絡ありがとうございます。</th>
+                            </tr> -->
+                        </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

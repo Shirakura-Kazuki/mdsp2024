@@ -1,0 +1,175 @@
+<!-- app/views/login/inpage.html.erb -->
+<h1>メディサポ24</h1>
+
+<% if flash[:alert] %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_with url: login_path, local: true do |form| %>
+  <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h2>ログイン画面</h2>
+      </div>
+
+      <div class="login-form">
+        <div class="control-group">
+          <%= form.label :role, '役割', class: 'login-field-icon fui-user' %>
+          <%= form.select :role, ['医療従事者', 'ユーザー'], {}, {class: 'form-control login-field', id: 'sel'} %>
+        </div>
+
+        <div class="control-group">
+          <%= form.label :username, 'ユーザー名', class: 'login-field-icon fui-user' %>
+          <%= form.text_field :username, class: 'form-control login-field', placeholder: 'ユーザー名を入力してください', id: 'login-name' %>
+        </div>
+
+        <div class="control-group">
+          <%= form.label :password, 'パスワード', class: 'login-field-icon fui-lock' %>
+          <%= form.password_field :password, class: 'form-control login-field', placeholder: 'パスワードを入力してください', id: 'login-pass' %>
+        </div>
+
+        <%= form.submit 'ログイン', class: 'btn btn-primary btn-large btn-block' %>
+
+        <!-- 新規登録とパスワードを忘れた方のリンク、ログインボタンと同じスタイルを適用 -->
+        <a class="btn-new btn-primary btn-large btn-block" href="/msnew">新規登録</a>
+        <a class="login-link" href="/mslospas">パスワードを忘れた方</a>
+
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<style>
+  /* CSSコード */
+  * {
+      box-sizing: border-box;
+  }
+      
+  *:focus {
+      outline: none;
+  }
+
+  body {
+      font-family: Arial;
+      background: radial-gradient(ellipse at center, rgba(96,171,248,1) 0%, rgba(155,201,247,1) 28%, rgba(155,201,247,1) 18%, rgb(255, 255, 255) 70%);
+      padding: 100px;
+  }
+  
+  .login {
+      margin: 20px auto;
+      width: 300px;
+  }
+  
+  .login-screen {
+      background-color: #FFF;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      height: 500px;
+  }
+  
+  .app-title {
+      text-align: center;
+      color: #777;
+  }
+
+  h2 {
+      text-align: center;
+      color: #444;
+  }
+  
+  .login-form {
+      text-align: center;
+  }
+  
+  .control-group {
+      margin-bottom: 15px;
+  }
+  
+  input {
+      text-align: center;
+      background-color: #ECF0F1;
+      border: 2px solid transparent;
+      border-radius: 3px;
+      font-size: 16px;
+      font-weight: 200;
+      padding: 10px 0;
+      width: 250px;
+      transition: border .5s;
+  }
+  
+  input:focus {
+      border: 2px solid #3498DB;
+      box-shadow: none;
+  }
+  
+  .btn {
+      border: 2px solid transparent;
+      background: #3498DB;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 25px;
+      padding: 10px 0;
+      text-decoration: none;
+      text-shadow: none;
+      border-radius: 3px;
+      box-shadow: none;
+      transition: 0.25s;
+      display: block;
+      width: 250px;
+      margin: 10px auto;
+  }
+
+  .btn:hover {
+      background-color: #2980B9;
+  }
+
+  .btn-new {
+      border: 2px solid transparent;
+      background: #50c878;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 25px;
+      padding: 10px 0;
+      text-decoration: none;
+      text-shadow: none;
+      border-radius: 3px;
+      box-shadow: none;
+      transition: 0.25s;
+      display: block;
+      width: 250px;
+      margin: 10px auto;
+  }
+</style>
+
+
+<!--
+
+<h1>メディサポ24</h1>
+
+<% if flash[:alert] %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_with url: login_path, local: true do |form| %>
+  <div>
+    <%= form.label :role, '役割' %>
+    <%= form.select :role, ['医療従事者', 'ユーザー'], {}, {class: 'form-control'} %>
+  </div>
+
+  <div>
+    <%= form.label :username, 'ユーザー名' %>
+    <%= form.text_field :username, class: 'form-control', placeholder: 'ユーザー名を入力してください' %>
+  </div>
+
+  <div>
+    <%= form.label :password, 'パスワード' %>
+    <%= form.password_field :password, class: 'form-control', placeholder: 'パスワードを入力してください' %>
+  </div>
+
+  <div>
+    <%= form.submit 'ログイン', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+-->

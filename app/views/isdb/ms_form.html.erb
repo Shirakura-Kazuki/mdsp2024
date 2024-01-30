@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="jp">
+    <head>
+        <meta charset="utf-8">
+        <title>医療診察！メディサポ 出力フォーム</title>
+    </head>
+
+    <body>
+        <!-- 以下、CSSコード -->
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            *:focus {
+                outline: none;
+            }
+
+            body {
+                font-family: Arial;
+                padding: 20px;
+            }
+            
+            .home {
+                margin: 20px auto;
+                width: 1200px;
+            }
+            
+            .home-title {
+                text-align: center;
+                font-size: 25px;
+                color: #777;
+            }
+        </style>
+
+        <!-- 以下、HTMLコード -->
+        <div class="home">
+            <div class="home-screen">
+                <div class="home-title">
+                    <h1>出力フォーム</h1>
+                    <P>以下に相談内容が表示されます</P>
+                </div>
+            </div>
+
+            <button type="button" onclick="history.back()">ホーム画面へ</button>
+
+            <body>
+                <table border="3" width="100%">
+                    <tr>
+                        <th>名前</th>
+                        <th>相談内容</th>
+                        <th>貼付画像</th>
+                    </tr>
+                    <tr>
+                        <td>白倉</td>
+                        <td>指をケガしました。</td>
+                        <td><img src="fingerinjury.png"></td>
+                    </tr>
+                    <tr>
+                        <td>山田</td>
+                        <td>手の甲をやけどしました。</td>
+                        <td><img src="handburn.png"></td>
+                    </tr>
+                    <tr>
+                        <td>清水</td>
+                        <td>足首をねんざしました。</td>
+                        <td><img src="legswelling.png"></td>
+                    </tr>
+                    <tr>
+                        <td>太田</td>
+                        <td>肘をすりむきました。</td>
+                        <td><img src="elbowscrape.jpg"></td>
+                    </tr>
+                    <tr>
+                        <td>田中</td>
+                        <td>膝をすりむきました。</td>
+                        <td><img src="kneescrape.jpg"></td>
+                    </tr>
+                </table>
+            </body>
+        </div>
+
+        <!-- 以下、Javascriptコード -->
+    </body>
+</html>

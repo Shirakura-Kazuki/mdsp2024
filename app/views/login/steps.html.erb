@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <title>メディサポ24指紋認証</title>
+    <link rel="stylesheet" href="\app\assets\stylesheets\style.css"> <!-- CSSファイルのパス -->
+</head>
+<body>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    color: #4CAF50;
+    text-align: center;
+}
+
+/* その他の必要なスタイルをここに追加 */
+.authenticating {
+    color: red; /* テキストの色を赤に */
+    font-weight: bold; /* テキストを太字に */
+}
+
+/* スタイルの追加 */
+html, body {
+    height: 100%; /* ビューポートの高さに合わせる */
+    margin: 0; /* デフォルトの余白を除去 */
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    background-color: #f0f0f0; /* 背景色 */
+}
+
+.container {
+    text-align: center; /* コンテナ内のテキストを中央寄せ */
+    width: 800px; /* 幅を800ピクセルに設定 */
+    height: 650px; /* 高さを600ピクセルに設定 */
+    overflow: auto; /* 内容がオーバーフローした場合にスクロールバーを表示 */
+    margin: auto; /* 水平方向中央寄せ */
+    padding: 20px; /* 内側の余白 */
+}
+
+.authenticating {
+    color: red; /* テキストの色を赤に */
+    font-weight: bold; /* テキストを太字に */
+}
+
+.container img {
+    display: block; /* 画像をブロック要素に */
+    margin: 20px auto; /* 上下の余白と水平方向の中央揃え */
+    max-width: 100%; /* 画像の最大幅をコンテナ幅に制限 */
+    height: auto; /* 高さを自動調整 */
+}
+
+.step-boxes {
+    display: flex; /* 横並びのレイアウト */
+    justify-content: center; /* 中央寄せ */
+    margin-bottom: 20px; /* 下部の余白 */
+}
+
+.step-box {
+    padding: 10px 20px; /* 内側の余白 */
+    color: white; /* 文字色 */
+    font-weight: bold; /* 太字 */
+    margin: 0 10px; /* 左右の余白 */
+}
+
+.step-boxd {
+    padding: 10px 20px; /* 内側の余白 */
+    color: gainsboro; /* 文字色 */
+    /* font-weight: bold; 太字 */
+    margin: 0 10px; /* 左右の余白 */
+}
+
+.step1 {
+    background-color: red; /* 背景色 */
+}
+
+.step2 {
+    background-color: grey; /* 背景色 */
+}
+
+
+  </style>
+
+<div class="container">
+
+<div class="step-boxes">
+      <div class="step-box step1">ステップ１: 指紋認証中</div>
+      <div class="step-boxd step2">ステップ２: 認証完了</div>
+</div>
+    <h1 class="title">指紋認証が必要です。<br>医療従事者ページへアクセスしています。</h1>
+    <h2 class="authenticating">指紋センサーに指をスキャンしてください<br>現在指紋認証中・・・・</h2>
+    <%= image_tag("15410.png", alt: "説明的なテキスト", size: "300x200") %>
+    <button type="button" onclick="history.back()">ホーム画面へ</button>
+</div>
+
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+<script type="text/javascript">
+  console.log('ページが読み込まれ、スクリプトの実行を開始します。');
+
+  // ページがロードされたときに一度だけリロードするためのロジック
+  if (!sessionStorage.getItem('alreadyReloaded')) {
+    console.log('ページはまだリロードされていません。リロードを実行します。');
+    sessionStorage.setItem('alreadyReloaded', 'true'); // フラグをセット
+    window.location.reload(true); // 強制的にサーバーからページをリロード
+  } else {
+    console.log('ページはリロードされました。Pusherの設定を開始します。');
+
+    // Pusherの設定
+    var pusher = new Pusher('085de5ec8bb26f0ec934', {
+      cluster: 'ap3'
+    });
+
+    var channel = pusher.subscribe('iot-test-0123');
+    channel.bind('state_event', function(data) {
+      var ans = data.state;
+      console.log('Pusherからのデータを受信しました:', ans); // 受け取ったデータをコンソールに表示
+
+      if (ans === "OK") {
+        console.log('/myhomeへリダイレクトします。');
+        window.location.href = '/completed'; // '/completed'へリダイレクト
+      } else {
+        console.log('認証に失敗しました。失敗メッセージを表示します。');
+        document.body.innerHTML += '<p>認証失敗</p>'; // 認証失敗のメッセージを表示
+      }
+    });
+
+    console.log('Pusherの設定が完了しました。');
+  }
+</script>
+
+<script type="text/javascript">
+  console.log('/api/v1/fingerprint/authenticateへのfetchを開始します。');
+  fetch('/api/v1/fingerprint/authenticate', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => {
+    console.log('レスポンスを受け取りました:', response);
+    return response.json();
+  })
+  .then(data => {
+    console.log('受け取ったデータ:', data);
+    // ここで必要な処理を追加
+  })
+  .catch((error) => {
+    console.error('fetch中にエラーが発生しました:', error);
+  });
+</script>
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="jp">
+    <head>
+        <meta charset="UTF-8">
+        <title>医療診察！メディサポ 相談フォーム</title>
+    </head>
+
+    <body>
+        <!-- 以下、CSSコード -->
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            *:focus {
+                outline: none;
+            }
+
+            header{
+                background: #ff838b;
+            }
+            
+            /*.contentA{
+                background: #b3d874;
+            }
+            
+            .contentB{
+                background: #6fb5ff;
+            }*/
+            
+            footer{
+                background: #ffce5b;
+            }
+
+            body {
+                font-family: Arial;
+                padding: 20px;
+            }
+            
+            .home {
+                margin: 20px auto;
+                width: 1200px;
+                
+            }
+            
+            .home-title {
+                text-align: center;
+                font-size: 25px;
+                color: #777;
+            }
+
+            .form {
+                text-align: center;
+                font-size: 15px;
+                align-items: stretch;
+            }
+
+            .control-group {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .contentA,.contentB{
+                width: 100%;
+                height: 100px;
+            }
+
+            .form-title {
+                font-size: 20px;
+                text-align: center;
+                vertical-align: top;
+            }
+
+            .name  {
+                font-size: 20px;
+                width: 200px;
+                height: 30px;
+            }
+
+            .message {
+                font-size: 20px;
+                width: 500px;
+                height: 100px;
+            }
+
+            .buttonA, .buttonB {
+                font-size: 15px;
+                margin: auto;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 110px;
+                height: 60px;
+            }
+        </style>
+
+        <!-- 以下、HTMLコード -->
+        <div class="home">
+            <div class="home-screen">
+                <div class="home-title">
+                    <h1>相談フォーム</h1>
+                    <P>こんにちは！ご用件をどうぞ</P>
+                </div>
+            </div>
+
+            <form action="" method="post" class="form">
+                <div class="main">
+                    <div class="contentA">
+                        <label for="name" class="form-title">ユーザ名</label>
+                        <input type="text" id="name" name="name" class="name">
+                    </div>
+                    <div class="contentB">
+                        <label for="message" class="form-title">相談内容</label>
+                        <textarea type="text" id="message" name="message" class="message"></textarea>
+                    </div>
+                </div>
+            </form>
+
+            <div class="button">
+                <!-- 画像選択 -->
+                <div class="buttonA">
+                    <input type="file" name="photo">
+                </div>
+                <!-- 入力した内容を掲示板に投稿するボタン -->
+                <div class="buttonA">
+                    <!-- 以下はデータ送信用のコード(試験時はコメントアウト) -->
+                    <!-- <input type="submit" value="送信"> -->
+                    <button type="button" onclick="location.href='/mspost'">送信</button>
+                </div>
+                <!-- 開いている側のホーム画面へ戻る（ユーザならユーザホーム、ドクターならドクターホーム） -->
+                <div class="buttonB">
+                    <button type="button" onclick="history.back()">ホーム画面へ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 以下、Javascriptコード -->
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="jp">
+    <head>
+        <meta charset="UTF-8">
+        <title>医療診察！メディサポ</title>
+    </head>
+
+    <body>
+        <!-- 以下、CSSコード -->
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            *:focus {
+                outline: none;
+            }
+
+            body {
+                font-family: Arial;
+                padding: 20px;
+            }
+            
+            .home {
+                margin: 20px auto;
+                width: 1200px;
+            }
+            
+            .home-title {
+                text-align: center;
+                font-size: 25px;
+                color: #777;
+            }
+
+            .control-group {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .btn {
+                font-size: 30px;
+                margin: auto;
+                
+            }
+
+            .control-group img {
+                width: 170px;
+                height: 200px;
+            }
+
+            .control-group div {
+                margin: auto;
+                text-align: center;
+                vertical-align: bottom;
+                font-size: 20px;
+            }
+
+            .btn-log {
+                font-size: 20px;
+                margin: auto;
+            }
+
+        </style>
+
+        <!-- 以下、HTMLコード -->
+        <div class="home">
+            <div class="home-screen">
+                <div class="home-title">
+                    <h1>ユーザページ</h1>
+                    <P>ようこそ！</P>
+                    <!-- <p id="msg"></p> -->
+                </div>
+            </div>
+
+            <div class="control-group">
+                <a class="btn btn-primary btn-large btn-block" href="/mscon">
+                    <img src="talk.png">
+                    <div>相談フォーム</div>
+                </a>
+                <a class="btn btn-primary btn-large btn-block" href="/msbord">
+                    <img src="bord.png">
+                    <div>掲示板</div>
+                </a>
+                <a class="btn btn-primary btn-large btn-block" href="/msuser">
+                    <img src="user.png">
+                    <div>ユーザ情報</div>
+                </a>
+                <a class="btn-log btn-primary btn-large btn-block" href="/mslogaut">
+                    <img src="logout.png">
+                    <div>ログアウト</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- 以下、Javascriptコード -->
+        <script>
+            let countdown = 2;
+            const timer = setInterval(function() {
+              countdown--;
+        
+              /* カウントダウンが0になればページ遷移 */
+              if (countdown === 0) {
+                clearInterval(timer);
+                window.location.href = "/login";
+              }
+            }, 1000);
+        </script>
+    </body>
+</html>

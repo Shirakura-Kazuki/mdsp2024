@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="jp">
+    <head>
+        <meta charset="utf-8">
+        <title>医療診察！メディサポ コード送信</title>
+    </head>
+
+    <body>
+        <!-- 以下、CSSコード -->
+        <style>
+          * {
+              box-sizing: border-box;
+          }
+
+          *:focus {
+              outline: none;
+          }
+
+          header{
+              background: #ff838b;
+          }
+
+          .home {
+            margin: 20px auto;
+            width: 1200px;
+          }
+        
+          .home-title {
+              text-align: center;
+              font-size: 15px;
+              color: #777;
+          }
+        </style>
+
+        <!-- 以下、HTMLコード -->
+        <div class="home"> 
+            <div class="home-screen">
+              <div class="home-title">
+                <h1>送信されました。</h1><br>
+                <h1>ログイン画面に戻ります。</h1>
+              </div>
+            </div>
+        </div>
+
+        <!-- 以下、JavaScriptコード -->
+        <script>
+            let countdown = 2;
+            const timer = setInterval(function() {
+              countdown--;
+        
+              /* カウントダウンが0になればページ遷移 */
+              if (countdown === 0) {
+                clearInterval(timer);
+                window.location.href = "/login";
+              }
+            }, 1000);
+        </script>
+        
+
+    </body>
+</html>
