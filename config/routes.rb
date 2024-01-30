@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   root 'login#inpage'
 
   post 'login', to: 'login#create', as: 'login' # ユーザーと医療従事者
@@ -26,4 +27,17 @@ Rails.application.routes.draw do
     end
   end
 
+=======
+  root to: 'account#m5test'
+
+  get 'login_d', to: 'account#login_d'
+  get 'login', to: 'account#login'
+
+  namespace :api do
+    namespace :v1 do
+      get 'fingerprint/authenticate', to: 'fingerprint#authenticate'
+      post 'fingerprint/status', to: 'fingerprint#status'
+    end
+  end
+>>>>>>> e78d9e2f9d891ec3c9f919f8e4293e977174a6d1
 end

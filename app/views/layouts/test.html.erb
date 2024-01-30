@@ -1,0 +1,23 @@
+app\controllers\api\v1\fingerprint_controller.rbのコード
+module Api
+  module V1
+    class FingerprintController < ApplicationController
+      skip_before_action :verify_authenticity_token
+
+      def authenticate
+        # JSONリクエストからパラメータを読み込む
+        body = JSON.parse(request.body.read)
+        fingerprint_id = body['fingerprint_id']
+
+        if fingerprint_id.present?
+          Rails.logger.info "Received fingerprint ID: #{fingerprint_id}"
+          render json: { status: 'success', message: 'Fingerprint ID received' }
+        else
+          render json: { status: 'error', message: 'Fingerprint ID missing' }, status: :bad_request
+        end
+      end
+    end
+  end
+end
+
+このAPIにアクセスし、fingerprint_id

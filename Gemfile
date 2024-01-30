@@ -71,5 +71,9 @@ group :test do
 
 end
 
+<<<<<<< HEAD
 
 gem 'pusher'
+=======
+gem 'hotwire-rails'
+>>>>>>> e78d9e2f9d891ec3c9f919f8e4293e977174a6d1

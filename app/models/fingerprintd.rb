@@ -1,0 +1,2 @@
+class Fingerprintd < ApplicationRecord
+end

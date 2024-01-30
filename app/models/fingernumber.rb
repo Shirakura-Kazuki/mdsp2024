@@ -1,0 +1,2 @@
+class Fingernumber < ApplicationRecord
+end

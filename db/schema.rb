@@ -10,11 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2024_01_21_124023) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
     t.string "role"
+=======
+ActiveRecord::Schema[7.0].define(version: 2024_01_16_091728) do
+  create_table "fingernumbers", force: :cascade do |t|
+    t.string "fingerprint_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fingerprintds", force: :cascade do |t|
+    t.string "fingerprint_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fingerprints", force: :cascade do |t|
+    t.string "fingerprint_id"
+>>>>>>> e78d9e2f9d891ec3c9f919f8e4293e977174a6d1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
